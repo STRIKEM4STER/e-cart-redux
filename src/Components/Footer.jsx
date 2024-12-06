@@ -2,6 +2,7 @@ import { faFacebook, faInstagram, faLinkedin, faXTwitter } from '@fortawesome/fr
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 
 
@@ -26,9 +27,9 @@ function Footer() {
 
     <div>
     <h1 className='text-3xl text-white py-4'>Links</h1>
-    <p  >Home</p>
-    <p className='mt-3' >Wishlist</p>
-    <p className='mt-3'>BootsWatch</p>
+    <Link to={"/"}><p  >Home</p></Link>
+    <Link to={"/Wishlist"}><p className='mt-3' >Wishlist</p></Link>
+    <Link to={"/Cart"}><p className='mt-3'>Cart</p></Link>
     </div>
 
 </div>
@@ -36,7 +37,7 @@ function Footer() {
 
 <div >
   <h1 className='text-3xl text-white py-4'>Guides</h1>
-  <p  >Home</p>
+  <p  >Bootstrap</p>
     <p className='mt-3' >Wishlist</p>
     <p className='mt-3'>BootsWatch</p>
   </div>

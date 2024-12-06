@@ -2,15 +2,20 @@ import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faCartShopping, faHeart } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 
 
 function Header() {
 
+  const wishlistArray = useSelector((state)=>state.Wishlist)
+
+  const cartItems = useSelector((state)=>state.cartItem)
+
   const [show, setShow]= useState(false)
 
   return (
-    <nav className='bg-violet-900 md:p-5 p-3 text-white w-100 ' >
+    <nav className='bg-violet-900 md:p-5 p-3 text-white w-full fixed ' >
 
       <div className="md:flex items-center px-10">
       <div className='flex w-full '>
@@ -24,12 +29,12 @@ function Header() {
         { show && <ul className='flex mt-5 md:hidden '>
         <Link to={"/Wishlist"}>
           <li>
-          <button className=' hover:bg-white hover:text-violet-900 border-2 rounded me-3' style={{width:"110px",height:"50px"}} > <FontAwesomeIcon icon={faHeart} style={{color: "#ff004c",}} /> Wishlist <span className='bg-white rounded px-1 text-black' >0</span> </button>
+          <button className=' hover:bg-white hover:text-violet-900 border-2 rounded me-3' style={{width:"110px",height:"50px"}} > <FontAwesomeIcon icon={faHeart} style={{color: "#ff004c",}} /> Wishlist <span className='bg-white rounded px-1 text-black' >{wishlistArray.length}</span> </button>
           </li>
         </Link>
         <Link to={"/Cart"}>
           <li>
-          <button className='  hover:bg-white hover:text-violet-900 border-2 rounded' style={{width:"100px",height:"50px"}} > <FontAwesomeIcon icon={faCartShopping} style={{color: "#63E6BE",}} /> Cart <span className='bg-white rounded px-1 text-black ' >0</span> </button>
+          <button className='  hover:bg-white hover:text-violet-900 border-2 rounded' style={{width:"100px",height:"50px"}} > <FontAwesomeIcon icon={faCartShopping} style={{color: "#63E6BE",}} /> Cart <span className='bg-white rounded px-1 text-black ' >{cartItems.length}</span> </button>
           </li>
         </Link>
       </ul>}
@@ -38,12 +43,12 @@ function Header() {
       <ul className='ms-auto md:flex hidden'>
         <Link to={"/Wishlist"}>
           <li>
-          <button className=' hover:bg-white hover:text-violet-900 border-2 rounded me-3' style={{width:"110px",height:"50px"}} > <FontAwesomeIcon icon={faHeart} style={{color: "#ff004c",}} /> Wishlist <span className='bg-white rounded px-1 text-black' >0</span> </button>
+          <button className=' hover:bg-white hover:text-violet-900 border-2 rounded me-3' style={{width:"110px",height:"50px"}} > <FontAwesomeIcon icon={faHeart} style={{color: "#ff004c",}} /> Wishlist <span className='bg-white rounded px-1 text-black' >{wishlistArray.length}</span> </button>
           </li>
         </Link>
         <Link to={"/Cart"}>
           <li>
-          <button className='  hover:bg-white hover:text-violet-900 border-2 rounded' style={{width:"100px",height:"50px"}} > <FontAwesomeIcon icon={faCartShopping} style={{color: "#63E6BE",}} /> Cart <span className='bg-white rounded px-1 text-black ' >0</span> </button>
+          <button className='  hover:bg-white hover:text-violet-900 border-2 rounded' style={{width:"100px",height:"50px"}} > <FontAwesomeIcon icon={faCartShopping} style={{color: "#63E6BE",}} /> Cart <span className='bg-white rounded px-1 text-black ' >{cartItems.length}</span> </button>
           </li>
         </Link>
       </ul>
